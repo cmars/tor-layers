@@ -1,0 +1,19 @@
+series: trusty
+
+services:
+  mediawiki:
+    charm: mediawiki
+    num_units: 1
+  mysql:
+    charm: mysql
+    num_units: 1
+  tor-hidden:
+    charm: "local:trusty/tor-hidden"
+    num_units: 1
+ 
+relations:
+  - - mediawiki
+    - mysql:db
+  - - mediawiki
+    - tor-hidden:reverseproxy
+

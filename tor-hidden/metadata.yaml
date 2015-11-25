@@ -1,0 +1,22 @@
+name: tor-hidden
+summary: Publish Tor hidden services
+maintainer: Casey Marshall <tor-charm@cmars.tech>
+description: |
+   Tor is free software and an open network that helps you defend against
+   traffic analysis, a form of network surveillance that threatens personal
+   freedom and privacy, confidential business activities and relationships, and
+   state security.
+
+   This charm publishes Juju services as Tor hidden services.
+
+   This instance of Tor does not operate as a relay, to avoid leaking
+   information that could reveal the location of the hidden service, see
+   https://www.torproject.org/docs/tor-hidden-service.html.en#three.
+categories:
+  - anonymity
+  - privacy
+  - freedom
+subordinate: false
+requires:
+  reverseproxy:
+    interface: http

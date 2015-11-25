@@ -1,0 +1,6 @@
+options:
+
+  socks5_port:
+    description: SOCKS5 proxy port
+    type: int
+    default: 9050

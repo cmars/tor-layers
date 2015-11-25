@@ -1,0 +1,20 @@
+options:
+
+  socks5_port:
+    description: SOCKS5 proxy port
+    type: int
+    default: 9050
+
+  relay_port:
+    description: Tor relay port
+    type: int
+    default: 9001
+
+  relay_nickname:
+    description: Tor relay nickname
+    type: string
+
+  relay_exit_policy:
+    description: Tor relay exit policy
+    type: string
+    default: "reject *:*"

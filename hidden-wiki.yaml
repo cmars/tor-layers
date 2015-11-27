@@ -12,8 +12,8 @@ services:
     num_units: 1
  
 relations:
-  - - mediawiki
+  - - mediawiki:db
     - mysql:db
-  - - mediawiki
+  - - mediawiki:website
     - tor-hidden:reverseproxy
 

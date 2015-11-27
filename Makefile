@@ -1,14 +1,14 @@
 
-JUJU_REPOSITORY := $(shell cd ..; pwd)
+REPO := $(shell cd ..; pwd)
 
-all: $(JUJU_REPOSITORY)/trusty/tor-relay $(JUJU_REPOSITORY)/trusty/tor-hidden
+all: $(REPO)/trusty/tor-relay $(JUJU_REPOSITORY)/trusty/tor-hidden
 
-$(JUJU_REPOSITORY)/trusty/%:
-	JUJU_REPOSITORY=$(JUJU_REPOSITORY) charm build $*
+$(REPO)/trusty/%:
+	JUJU_REPOSITORY=$(REPO) charm build $*
 
 clean:
-	$(RM) -r $(JUJU_REPOSITORY)/trusty/tor-relay
-	$(RM) -r $(JUJU_REPOSITORY)/trusty/tor-hidden
+	$(RM) -r $(REPO)/trusty/tor-relay
+	$(RM) -r $(REPO)/trusty/tor-hidden
 
 .PHONY: all clean
 

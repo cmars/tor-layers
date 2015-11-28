@@ -1,0 +1,16 @@
+name: tor-bridge
+summary: Tor bridge
+maintainer: Casey Marshall <tor-charms@cmars.tech>
+description: |
+   Tor is free software and an open network that helps you defend against
+   traffic analysis, a form of network surveillance that threatens personal
+   freedom and privacy, confidential business activities and relationships, and
+   state security.
+
+   This charm deploys a Tor bridge, which helps nodes connect to Tor from a
+   more restricted network environment.
+categories:
+  - anonymity
+  - privacy
+  - freedom
+subordinate: false

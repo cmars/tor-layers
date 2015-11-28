@@ -5,6 +5,13 @@
 
 SocksPort 127.0.0.1:{{ cfg.socks5_port }}
 
+{% for bridge in bridges %}
+Bridge {{ bridge.addr }} {{ bridge.fingerprint }}
+{% endfor %}
+{% if bridges %}
+UseBridges 1
+{% endif %}
+
 {% for service in services %}
 {% if service.hosts %}
 HiddenServiceDir /var/lib/tor/{{ service.service_name }}/

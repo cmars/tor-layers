@@ -10,15 +10,6 @@ from charmhelpers.fetch import apt_update, apt_install, add_source
 from charms.reactive import hook, when, when_not, is_state, set_state, remove_state
 
 
-@hook('install')
-def install():
-    add_source('deb http://deb.torproject.org/torproject.org trusty main',
-        key='A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89')
-    apt_update()
-    apt_install(['deb.torproject.org-keyring'])
-    apt_install(['tor'])
-
-
 @hook('config-changed')
 def config():
     cfg = hookenv.config()
@@ -38,7 +29,6 @@ def update_torrc():
         perms=0o644,
         context={
             'cfg': cfg,
-            'services': {},
             'public_address': hookenv.unit_public_ip(),
             'private_address': hookenv.unit_private_ip(),
             'relay_nickname': relay_nickname(),

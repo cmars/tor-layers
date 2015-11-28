@@ -4,3 +4,8 @@ options:
     description: SOCKS5 proxy port
     type: int
     default: 9050
+
+  bridges:
+    description: Tor bridges to connect through, of the form "<addr> <fingerprint>", comma separated.
+    type: string
+

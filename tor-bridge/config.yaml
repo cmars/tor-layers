@@ -1,0 +1,6 @@
+options:
+
+  port:
+    description: Tor bridge port
+    type: int
+    default: 443

@@ -1,14 +1,15 @@
 
 REPO := $(shell cd ..; pwd)
 
-all: $(REPO)/trusty/tor-relay $(JUJU_REPOSITORY)/trusty/tor-hidden
+CHARMS=tor-relay tor-hidden tor-bridge
+
+all: $(CHARMS:%=$(REPO)/trusty/%)
 
 $(REPO)/trusty/%:
 	JUJU_REPOSITORY=$(REPO) charm build $*
 
 clean:
-	$(RM) -r $(REPO)/trusty/tor-relay
-	$(RM) -r $(REPO)/trusty/tor-hidden
+	$(RM) -r $(CHARMS:%=$(REPO)/trusty/%)
 
 .PHONY: all clean
 

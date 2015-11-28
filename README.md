@@ -1,6 +1,6 @@
 # tor-layers
 
-This project builds two Juju charms that deploy [Tor](https://www.torproject.org/):
+This project builds Juju charms that deploy [Tor](https://www.torproject.org/):
 
 - [tor-relay](tor-relay/README.md), which just operates a relay to support the network
 - [tor-hidden](tor-hidden/README.md), which is used to publish hidden services

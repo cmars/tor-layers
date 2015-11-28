@@ -13,7 +13,7 @@ This project builds two Juju charms that deploy [Tor](https://www.torproject.org
 
 # Building
 
-`make all` will build the two charms at `../trusty` from this directory.
+`make all` will build the charms at `../trusty` from this directory.
 
 Use `make REPO=/path/to/repo all` to build the charms somewhere else.
 

@@ -4,6 +4,7 @@ This project builds two Juju charms that deploy [Tor](https://www.torproject.org
 
 - [tor-relay](tor-relay/README.md), which just operates a relay to support the network
 - [tor-hidden](tor-hidden/README.md), which is used to publish hidden services
+- [tor-bridge](tor-bridge/README.md), which operates a bridge
 
 # Requirements
 
@@ -18,7 +19,10 @@ Use `make REPO=/path/to/repo all` to build the charms somewhere else.
 
 # Usage
 
-See the README files for [tor-relay](tor-relay/README.md) and [tor-hidden](tor-hidden/README.md).
+See the README files:
+- [tor-relay](tor-relay/README.md)
+- [tor-hidden](tor-hidden/README.md)
+- [tor-bridge](tor-bridge/README.md)
 
 # Known Issues
 

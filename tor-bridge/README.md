@@ -1,6 +1,6 @@
 ## tor-bridge
 
-tor-relay deploys a [Tor](https://www.torproject.org/)
+tor-bridge deploys a [Tor](https://www.torproject.org/)
 [bridge](https://www.torproject.org/docs/bridges.html.en).
 
 # Disclaimer

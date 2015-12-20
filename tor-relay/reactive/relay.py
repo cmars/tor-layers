@@ -33,6 +33,7 @@ def update_torrc():
             'private_address': hookenv.unit_private_ip(),
             'relay_nickname': relay_nickname(),
         })
+    remove_state('tor.configured')
     set_state('tor.start')
 
 
@@ -49,7 +50,7 @@ def generated_nickname():
     if os.path.exists(nickfile):
         with open(nickfile, 'r') as fh:
             return fh.read()
-    nick = 'juju' + ''.join([random.choice(string.ascii_letters + string.digits) for n in xrange(12)])
+    nick = 'juju' + ''.join([random.choice(string.ascii_letters + string.digits) for n in range(12)])
     with open(nickfile, 'w') as fh:
         fh.write(nick)
     return nick

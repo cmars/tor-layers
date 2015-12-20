@@ -38,4 +38,5 @@ def config_with_reverseproxy(reverseproxy):
             'public_address': hookenv.unit_public_ip(),
             'private_address': hookenv.unit_private_ip(),
         })
+    remove_state('reverseproxy.available')
     set_state('tor.start')

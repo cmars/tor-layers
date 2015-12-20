@@ -43,10 +43,9 @@ def restart_tor():
     hookenv.status_set('active', 'tor service ready')
 
 
-@when('tor.stop', 'tor.started')
+@when('tor.stop')
 def stop_tor():
     remove_state('tor.stop')
     if host.service_running('tor'):
         host.service_stop('tor')
-    remove_state('tor.started')
     hookenv.status_set('maintenance', 'tor service stopped')

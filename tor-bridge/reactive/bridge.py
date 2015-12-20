@@ -21,7 +21,6 @@ def config():
 
 @when('tor.configured')
 def update_torrc():
-    remove_state('tor.configured')
     cfg = hookenv.config()
     render(source='torrc',
         target='/etc/tor/torrc',
@@ -32,4 +31,5 @@ def update_torrc():
             'public_address': hookenv.unit_public_ip(),
             'private_address': hookenv.unit_private_ip(),
         })
+    remove_state('tor.configured')
     set_state('tor.start')

@@ -32,6 +32,10 @@ $ juju run --service mediawiki 'cat /var/lib/tor/mediawiki/hostname'
 at4rj2khrro462we.onion
 ```
 
+# Source
+
+This charm was built from [tor-layers](https://github.com/cmars/tor-layers).
+
 # Disclaimer
 
 This charm is experimental. Use at your own risk.

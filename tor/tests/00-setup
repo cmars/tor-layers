@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Install amulet if not installed. Better to check this way, so that the script
+# can run non-interactively in development environments once it's installed.
+(dpkg -s amulet | grep 'Status: install' >/dev/null) || sudo apt-get install amulet
+

@@ -8,12 +8,13 @@ This project builds Juju charms that deploy [Tor](https://www.torproject.org/):
 
 # Requirements
 
-- charm-tools 1.8.0
-- Juju 1.24 or newer recommended
+- charm-tools >= 1.10.1
+- Juju >= 1.24 should work. I've only tested with 1.26.
 
 # Building
 
-`make all` will build the charms at `../trusty` from this directory.
+`make all` will build the charms assuming `JUJU_REPOSITORY=..` relative to this
+directory.
 
 Use `make REPO=/path/to/repo all` to build the charms somewhere else.
 

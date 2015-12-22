@@ -3,6 +3,10 @@
 tor-bridge deploys a [Tor](https://www.torproject.org/)
 [bridge](https://www.torproject.org/docs/bridges.html.en).
 
+# Source
+
+This charm was built from [tor-layers](https://github.com/cmars/tor-layers).
+
 # Disclaimer
 
 This charm is experimental. Use at your own risk.

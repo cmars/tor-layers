@@ -20,3 +20,6 @@ subordinate: false
 requires:
   reverseproxy:
     interface: http
+series:
+  - trusty
+

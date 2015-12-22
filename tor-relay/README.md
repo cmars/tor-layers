@@ -7,6 +7,10 @@ publish hidden services.
 tor-relay has a few configurable options for specifying ports, relay nickname,
 and the exit policy. See [config.yaml](config.yaml) for details.
 
+# Source
+
+This charm was built from [tor-layers](https://github.com/cmars/tor-layers).
+
 # Disclaimer
 
 This charm is experimental. Use at your own risk.

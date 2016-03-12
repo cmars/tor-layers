@@ -13,11 +13,11 @@ This charm was built from [tor-layers](https://github.com/cmars/tor-layers).
 
 # Disclaimer
 
-This charm is experimental. Use at your own risk.
+Use at your own risk.
 
 # License
 
-Copyright 2015 Casey Marshall.
+Copyright 2015, 2016 Casey Marshall.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

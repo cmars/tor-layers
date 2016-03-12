@@ -9,3 +9,14 @@ Address {{ public_address }}
 Nickname {{ relay_nickname }}
 ExitPolicy {{ cfg.relay_exit_policy }}
 
+{% if cfg.accounting_start and cfg.accounting_max %}
+AccountingStart {{ cfg.accounting_start }}
+AccountingMax {{ cfg.accounting_max }}
+{% if cfg.bandwidth_rate %}
+RelayBandwidthRate {{ cfg.bandwidth_rate }}
+{% endif %}
+{% if cfg.bandwidth_burst %}
+RelayBandwidthBurst {{ cfg.bandwidth_burst }}
+{% endif %}
+{% endif %}
+

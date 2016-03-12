@@ -1,20 +1,41 @@
 options:
 
   socks5_port:
-    description: SOCKS5 proxy port
+    description: SOCKS5 proxy port.
     type: int
     default: 9050
 
   relay_port:
-    description: Tor relay port
+    description: Tor relay port.
     type: int
     default: 9001
 
   relay_nickname:
-    description: Tor relay nickname
+    description: Tor relay nickname.
     type: string
 
   relay_exit_policy:
-    description: Tor relay exit policy
+    description: Tor relay exit policy.
     type: string
     default: "reject *:*"
+
+  accounting_start:
+    description: Bandwidth accounting time window.
+    type: string
+    default: "day 00:00"
+
+  accounting_max:
+    description: Bandwidth accounting max limit per window. Set to empty string for no limits.
+    type: string
+    default: "30 GBytes"
+
+  bandwidth_rate:
+    description: Bandwidth rate limit, per second. Set to empty string for no limit.
+    type: string
+    default: "350 KBytes"
+
+  bandwidth_burst:
+    description: Bandwidth allowed burst rate, per second. Set to empty string for no limit.
+    type: string
+    default: "700 KBytes"
+

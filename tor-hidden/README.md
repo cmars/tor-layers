@@ -38,11 +38,19 @@ This charm was built from [tor-layers](https://github.com/cmars/tor-layers).
 
 # Disclaimer
 
-This charm is experimental. Use at your own risk.
+This charm makes it easy to deploy a hidden service and attempts to do it well,
+but it is no substitute for the flawless execution of operational security
+needed to host things anonymously.
+
+Make sure that the provider you deploy into meets your security requirements.
+Running things off LXD on your laptop could reveal your true network location
+through timing correlation with other network traffic, for example.
+
+Use at your own risk and peril.
 
 # License
 
-Copyright 2015 Casey Marshall.
+Copyright 2015, 2016 Casey Marshall.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

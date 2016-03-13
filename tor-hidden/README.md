@@ -38,15 +38,16 @@ This charm was built from [tor-layers](https://github.com/cmars/tor-layers).
 
 # Disclaimer
 
+Use at your own risk and peril.
+
 This charm makes it easy to deploy a hidden service and attempts to do it well,
 but it is no substitute for the flawless execution of operational security
 needed to host things anonymously.
 
-Make sure that the provider you deploy into meets your security requirements.
-Running things off LXD on your laptop could reveal your true network location
-through timing correlation with other network traffic, for example.
-
-Use at your own risk and peril.
+Know your threat model. Know and understand your potential exposure. _Any_
+activity in your private service that correlates with external activity
+(network traffic, resource consumption) reveals the true network location of
+your deployment over time.
 
 # License
 

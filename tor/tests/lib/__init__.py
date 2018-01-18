@@ -8,7 +8,7 @@ def assert_connect(host, port):
             try:
                 s.connect((host, port))
                 return
-            except ConnectionRefusedError: pass
+            except ConnectionRefusedError:
+                pass
         time.sleep(1)
     raise Exception("failed to connect")
-

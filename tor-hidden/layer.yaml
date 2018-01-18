@@ -1,6 +1,5 @@
 includes:
  - layer:basic
- - layer:apt
  - layer:tor-layers/tor
  - interface:http
 repo: https://github.com/cmars/tor-layers.git

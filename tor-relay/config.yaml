@@ -13,6 +13,7 @@ options:
   relay_nickname:
     description: Tor relay nickname.
     type: string
+    default: ""
 
   relay_exit_policy:
     description: Tor relay exit policy.

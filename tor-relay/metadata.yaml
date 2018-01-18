@@ -9,11 +9,11 @@ description: |
 
    This charm deploys a configurable Tor relay. By default, this charm relays
    traffic internally for the Tor network but does not permit outbound traffic.
-categories:
+tags:
   - anonymity
   - privacy
   - freedom
 subordinate: false
 series:
+  - xenial
   - trusty
-

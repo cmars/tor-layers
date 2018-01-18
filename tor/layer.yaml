@@ -1,4 +1,3 @@
 includes:
-- layer:basic
-- layer:tor-layers/tor
+  - layer:apt
 repo: https://github.com/cmars/tor-layers.git

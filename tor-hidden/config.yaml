@@ -8,4 +8,4 @@ options:
   bridges:
     description: Tor bridges to connect through, of the form "<addr> <fingerprint>", comma separated.
     type: string
-
+    default: ""

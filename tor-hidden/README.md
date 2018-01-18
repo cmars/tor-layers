@@ -8,28 +8,26 @@ For security reasons, this instance of Tor does not operate as a relay.
 
 # Example
 
-## Deploying your own "hidden wiki"
+## Deploying your own hidden website using the apache2 charm
 
-Turn that wiki:
-
-```
-$ juju deploy mediawiki
-$ juju deploy mysql
-$ juju add-relation mediawiki:db mysql:db
-```
-
-into a hidden wiki:
+Turn that website:
 
 ```
-$ juju deploy local:trusty/tor-hidden
-$ juju add-relation mediawiki:website tor-hidden:reverseproxy
+$ juju deploy apache2
 ```
 
-Get the hidden service hostname with:
+into a hidden website:
 
 ```
-$ juju run --service mediawiki 'cat /var/lib/tor/mediawiki/hostname'
-at4rj2khrro462we.onion
+$ juju deploy local:xenial/tor-hidden
+$ juju add-relation apache2:website tor-hidden:reverseproxy
+```
+
+The hidden service hostname will be visible via juju status
+
+```
+$ juju status | grep \.onion
+tor-hidden/0*  active    idle   1        192.168.2.60           tor service ready: service apache2 running on wl2f5pijubf33mjb.onio
 ```
 
 # Source
@@ -64,4 +62,3 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-

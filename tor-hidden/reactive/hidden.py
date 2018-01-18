@@ -1,13 +1,9 @@
+import glob
 import os
-import random
-import shutil
-import string
 from subprocess import check_call
-
-from charmhelpers.core import hookenv, host
+from charmhelpers.core import hookenv
 from charmhelpers.core.templating import render
-from charmhelpers.fetch import apt_update, apt_install, add_source
-from charms.reactive import hook, when, when_not, is_state, set_state, remove_state
+from charms.reactive import when, set_state, remove_state
 
 
 @when('reverseproxy.available')
@@ -28,15 +24,33 @@ def config_with_reverseproxy(reverseproxy):
             bridges.append({'addr': addr, 'fingerprint': fp})
 
     render(source='torrc',
-        target='/etc/tor/torrc',
-        owner='root',
-        perms=0o644,
-        context={
-            'cfg': cfg,
-            'services': services,
-            'bridges': bridges,
-            'public_address': hookenv.unit_public_ip(),
-            'private_address': hookenv.unit_private_ip(),
-        })
+           target='/etc/tor/torrc',
+           owner='root',
+           perms=0o644,
+           context={
+               'cfg': cfg,
+               'services': services,
+               'bridges': bridges,
+               'public_address': hookenv.unit_public_ip(),
+               'private_address': hookenv.unit_private_ip(),
+           }
+           )
     remove_state('reverseproxy.available')
     set_state('tor.start')
+
+
+@when('tor.started')
+def update_status_hostnames():
+    hostname_files = glob.glob('/var/lib/tor/*/hostname')
+    status = ''
+    for hostname_file in hostname_files:
+        with open(hostname_file, 'r') as f:
+            servicename = hostname_file.split('/')[4]
+            hostname = f.read().strip()
+            status = status + 'service {} running on {}, '.format(servicename, hostname)
+
+    if status.endswith(', '):
+        status = status[:-2]
+
+    if status != '':
+        hookenv.status_set('active', 'tor service ready: {}'.format(status.strip()))

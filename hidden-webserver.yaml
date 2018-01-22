@@ -5,7 +5,7 @@ services:
     charm: apache2
     num_units: 1
   tor-hidden:
-    charm: "local:xenial/tor-hidden"
+    charm: "../builds/tor-hidden"
     num_units: 1
 
 relations:

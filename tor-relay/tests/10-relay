@@ -6,7 +6,7 @@ import socket
 from lib import assert_connect
 
 d = amulet.Deployment(series='xenial')
-d.add('tor-relay', 'local:xenial/tor-relay')
+d.add('tor-relay', '../builds/tor-relay')
 
 try:
     # Create the deployment described above, give us 900 seconds to do it

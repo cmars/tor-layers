@@ -9,11 +9,11 @@ description: |
 
    This charm deploys a Tor bridge, which helps nodes connect to Tor from a
    more restricted network environment.
-categories:
+tags:
   - anonymity
   - privacy
   - freedom
 subordinate: false
 series:
+  - xenial
   - trusty
-

@@ -5,8 +5,8 @@ import amulet
 import socket
 from lib import assert_connect
 
-d = amulet.Deployment(series='trusty')
-d.add('tor-relay', 'local:trusty/tor-relay')
+d = amulet.Deployment(series='xenial')
+d.add('tor-relay', 'local:xenial/tor-relay')
 
 try:
     # Create the deployment described above, give us 900 seconds to do it

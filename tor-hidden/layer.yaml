@@ -2,3 +2,4 @@ includes:
  - layer:basic
  - layer:tor-layers/tor
  - interface:http
+repo: https://github.com/cmars/tor-layers.git

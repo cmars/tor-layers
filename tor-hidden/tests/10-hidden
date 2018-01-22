@@ -5,10 +5,10 @@ import amulet
 import socket
 from lib import assert_connect
 
-d = amulet.Deployment(series='trusty')
-d.add('tor-hidden', 'local:trusty/tor-hidden')
-d.add('dokuwiki')
-d.relate('tor-hidden:reverseproxy', 'dokuwiki:website')
+d = amulet.Deployment(series='xenial')
+d.add('tor-hidden', 'local:xenial/tor-hidden')
+d.add('apache2')
+d.relate('tor-hidden:reverseproxy', 'apache2:website')
 
 try:
     # Create the deployment described above, give us 900 seconds to do it
@@ -30,8 +30,7 @@ tor_unit = d.sentry['tor-hidden'][0]
 
 # Test that hidden service has a .onion address
 print("checking hidden service hostname...", end='')
-out, rc = tor_unit.run('cat /var/lib/tor/dokuwiki/hostname')
+out, rc = tor_unit.run('cat /var/lib/tor/apache2/hostname')
 assert rc==0, "failed to cat hidden service hostname"
 assert out.endswith(".onion"), "unexpected hostname: %s" % (out)
 print("OK")
-

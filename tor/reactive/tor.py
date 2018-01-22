@@ -1,13 +1,12 @@
-import os
-import random
-import shutil
-import string
-from subprocess import check_call
+import charms.apt
+from subprocess import check_call, check_output
 
 from charmhelpers.core import hookenv, host
-from charmhelpers.core.templating import render
-from charmhelpers.fetch import apt_update, apt_install, add_source
-from charms.reactive import hook, when, when_not, is_state, set_state, remove_state
+from charms.reactive import hook, when, set_state, remove_state
+
+
+def get_series():
+    return check_output(['lsb_release', '-sc'], universal_newlines=True).strip()
 
 
 @hook('install')
@@ -20,16 +19,10 @@ def install():
     # Remove universe/multiverse from sources, to avoid the out-of-date tor
     # package.
     check_call(['sed', '-i.torinstall', '/universe/d;/multiverse/d;', '/etc/apt/sources.list'])
-    check_call(['apt-get', 'clean'])
+    charms.apt.add_source('deb http://deb.torproject.org/torproject.org {} main'.format(get_series()),
+                          key='A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89')
 
-    add_source('deb http://deb.torproject.org/torproject.org trusty main',
-        key='A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89')
-    apt_update()
-
-    # This may fail if torproject.org is blocked. OpenDNS censors it, for example.
-    check_call(['apt-get', '-y', 'install', 'deb.torproject.org-keyring', 'tor'])
-
-    hookenv.status_set('maintenance', 'tor installation complete')
+    charms.apt.queue_install(['deb.torproject.org-keyring', 'tor'])
 
 
 @when('tor.start')
@@ -40,6 +33,7 @@ def restart_tor():
     else:
         host.service_start('tor')
     set_state('tor.started')
+
     hookenv.status_set('active', 'tor service ready')
 
 

@@ -12,7 +12,7 @@ description: |
    This instance of Tor does not operate as a relay, to avoid leaking
    information that could reveal the location of the hidden service, see
    https://www.torproject.org/docs/tor-hidden-service.html.en#three.
-categories:
+tags:
   - anonymity
   - privacy
   - freedom
@@ -21,5 +21,5 @@ requires:
   reverseproxy:
     interface: http
 series:
+  - xenial
   - trusty
-

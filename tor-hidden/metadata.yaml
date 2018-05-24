@@ -21,5 +21,6 @@ requires:
   reverseproxy:
     interface: http
 series:
+  - bionic
   - xenial
   - trusty

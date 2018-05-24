@@ -5,7 +5,7 @@ import amulet
 import socket
 from lib import assert_connect
 
-d = amulet.Deployment(series='xenial')
+d = amulet.Deployment(series='bionic')
 d.add('tor-relay', '../builds/tor-relay')
 
 try:

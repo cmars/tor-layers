@@ -26,6 +26,9 @@ except:
 # Shorten the names a little to make working with unit data easier
 tor_unit = d.sentry['tor-bridge'][0]
 
+# Expose the bridge service so we can connect to it
+d.expose('tor-bridge')
+
 print("check for bridge listening on default port...", end='')
 assert_connect(tor_unit.info['public-address'], 443)
 print("OK")

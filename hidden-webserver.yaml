@@ -1,4 +1,4 @@
-series: xenial
+series: bionic
 
 services:
   apache2:

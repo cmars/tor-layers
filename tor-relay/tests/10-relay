@@ -26,6 +26,10 @@ except:
 # Shorten the names a little to make working with unit data easier
 tor_unit = d.sentry['tor-relay'][0]
 
+
+# Expose the relay service so we can connect to it
+d.expose('tor-relay')
+
 print("checking connection to relay port...", end='')
 assert_connect(tor_unit.info['public-address'], 9001)
 print("OK")

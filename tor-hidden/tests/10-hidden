@@ -5,7 +5,7 @@ import amulet
 import socket
 from lib import assert_connect
 
-d = amulet.Deployment(series='bionic')
+d = amulet.Deployment(series='focal')
 d.add('tor-hidden', '../builds/tor-hidden')
 d.add('apache2')
 d.relate('tor-hidden:reverseproxy', 'apache2:website')

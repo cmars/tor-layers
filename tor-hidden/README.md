@@ -19,7 +19,7 @@ $ juju deploy apache2
 into a hidden website:
 
 ```
-$ juju deploy local:bionic/tor-hidden
+$ juju deploy local:focal/tor-hidden
 $ juju add-relation apache2:website tor-hidden:reverseproxy
 ```
 

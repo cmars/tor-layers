@@ -27,3 +27,4 @@ def update_torrc():
            )
     remove_state('tor.configured')
     set_state('tor.start')
+    hookenv.status_set('active', 'tor bridge ready')

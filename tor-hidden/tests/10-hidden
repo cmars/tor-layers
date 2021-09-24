@@ -32,5 +32,5 @@ tor_unit = d.sentry['tor-hidden'][0]
 print("checking hidden service hostname...", end='')
 out, rc = tor_unit.run('cat /var/lib/tor/apache2/hostname')
 assert rc==0, "failed to cat hidden service hostname"
-assert out.endswith(".onion"), "unexpected hostname: %s" % (out)
+assert out.endswith(".onion"), "unexpected hostname: {}".format(out)
 print("OK")

@@ -19,7 +19,7 @@ def install():
     # Remove universe/multiverse from sources, to avoid the out-of-date tor
     # package.
     check_call(['sed', '-i.torinstall', '/universe/d;/multiverse/d;', '/etc/apt/sources.list'])
-    charms.apt.add_source('deb http://deb.torproject.org/torproject.org {} main'.format(get_series()),
+    charms.apt.add_source('deb https://deb.torproject.org/torproject.org {} main'.format(get_series()),
                           key='A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89')
 
     charms.apt.queue_install(['deb.torproject.org-keyring', 'tor'])
@@ -33,8 +33,6 @@ def restart_tor():
     else:
         host.service_start('tor')
     set_state('tor.started')
-
-    hookenv.status_set('active', 'tor service ready')
 
 
 @when('tor.stop')

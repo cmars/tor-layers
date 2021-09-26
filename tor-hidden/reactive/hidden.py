@@ -12,7 +12,7 @@ def config_with_reverseproxy(reverseproxy):
     cfg = hookenv.config()
 
     for service in services:
-        service_dir = '/var/lib/tor/%s' % (service['service_name'])
+        service_dir = '/var/lib/tor/{}'.format(service['service_name'])
         if not os.path.isdir(service_dir):
             check_call(['install', '-d', service_dir, '-o', 'debian-tor', '-m', '700'])
 
